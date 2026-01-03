@@ -12,11 +12,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   margin: 0;
+  overflow: hidden;
 }
 pre {
   text-align: left;
+  margin: 0;
+  padding: 20px;
 }
 .ok {
   color: #b8bb26;
@@ -40,7 +44,7 @@ const URL = atob('aHR0cHM6Ly9wYXN0YWxidXJyby5kdWNrZG5zLm9yZw');
   try {
     await fetch(URL, { method: 'HEAD', mode: 'no-cors', cache: 'no-cache' });
     state = 'ok';
-    latency = (performance.now() - start | 0) + 'ms';
+    latency = (performance.now() - start | 0) + ' ms';
     output = ` status: <span class="ok">${state}</span>\nlatency: ${latency}`;
   } catch (e) {
     try {
