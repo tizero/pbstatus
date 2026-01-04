@@ -16,20 +16,20 @@ body {
 </style>
 </head>
 <body>
-<pre><span class="np">></span> ping</pre>
-<pre id="s">> </pre>
+<pre><span class="np">&gt;</span> ping</pre>
+<pre id="s">&gt; </pre>
 <script>
 (async () => {
   let out = '';
   try {
     await fetch(atob('aHR0cHM6Ly9wYXN0YWxidXJyby5kdWNrZG5zLm9yZw=='), { method: 'HEAD', mode: 'no-cors', cache: 'no-cache' });
-    out = '<span class="ok">></span> ok;
+    out = '<span class="ok">&gt;</span> ok;
   } catch {
     try {
       const ip = (await (await fetch('https://api.ipify.org?format=json')).json()).ip;
-      out = '<span class="ko">></span> down || ' + ip + ' banned';
+      out = '<span class="ko">&gt;</span> down || ' + ip + ' banned';
     } catch {
-      out = '<span class="ko">></span> down || ip banned';
+      out = '<span class="ko">&gt;</span> down || ip banned';
     }
   }
   document.getElementById('s').innerHTML = out;
