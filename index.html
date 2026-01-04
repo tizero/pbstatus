@@ -25,13 +25,13 @@ body {
   let out = '';
   try {
     await fetch(atob('aHR0cHM6Ly9wYXN0YWxidXJyby5kdWNrZG5zLm9yZw=='), { method: 'HEAD', mode: 'no-cors', cache: 'no-cache' });
-    out = 'status: <span class="ok">pastalburro up</span>';
+    out = '<span class="ok">pastalburro up</span>';
   } catch {
     try {
       const ip = (await (await fetch('https://api.ipify.org?format=json')).json()).ip;
-      out = 'status: <span class="ko">pastalburro down / ip banned</span>\nip: ' + ip;
+      out = '<span class="ko">pastalburro down / ip banned</span>\nip: ' + ip;
     } catch {
-      out = 'status: <span class="ko">pastalburro down / ip banned</span>';
+      out = '<span class="ko">pastalburro down / ip banned</span>';
     }
   }
   document.getElementById('s').innerHTML = out;
