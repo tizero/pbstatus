@@ -3,35 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>pastalburro status</title>
+<title>PB status</title>
 <style>
 body {
   background: #282c34;
   color: #bbc2cf;
   font: 14px monospace;
 }
-.ok {
-  color: #98be65;
-}
-.ko {
-  color: #ff6c6b;
-}
+.ok { color: #98be65; }
+.ko { color: #ff6c6b; }
+.np { color: #5b6268; }
 </style>
 </head>
 <body>
-<pre id="s">fetching...</pre>
+<pre><span class="np">></span> ping</pre>
+<pre id="s">> </pre>
 <script>
 (async () => {
   let out = '';
   try {
     await fetch(atob('aHR0cHM6Ly9wYXN0YWxidXJyby5kdWNrZG5zLm9yZw=='), { method: 'HEAD', mode: 'no-cors', cache: 'no-cache' });
-    out = '<span class="ok">pastalburro up</span>';
+    out = '<span class="ok">></span> ok;
   } catch {
     try {
       const ip = (await (await fetch('https://api.ipify.org?format=json')).json()).ip;
-      out = '<span class="ko">pastalburro down / ip banned</span>\nip: ' + ip;
+      out = '<span class="ko">></span> down || ' + ip + ' banned';
     } catch {
-      out = '<span class="ko">pastalburro down / ip banned</span>';
+      out = '<span class="ko">></span> down || ip banned';
     }
   }
   document.getElementById('s').innerHTML = out;
